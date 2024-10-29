@@ -5,7 +5,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@services": ["src/app/services"]
+      "@services": ["src/app/services"],
+      "@guards": ["src/app/guards"],
+      "@interceptors": ["src/app/interceptors"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,
