@@ -23,7 +23,8 @@ export class StorageService {
     return {
       name: localStorage.getItem('name'),
       email: localStorage.getItem('email'),
-      image: localStorage.getItem('image')
+      image: localStorage.getItem('image'),
+      role: localStorage.getItem('role'),
     };
   }
 
@@ -33,8 +34,8 @@ export class StorageService {
   }
 
   public removeData() {
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
-    sessionStorage.removeItem('token');
+    localStorage.clear();
+    // sessionStorage.removeItem('token');
+    this.cookie.delete('token');
   }
 }

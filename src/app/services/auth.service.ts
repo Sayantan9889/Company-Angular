@@ -10,6 +10,14 @@ export class AuthService {
   constructor() { }
 
   public isLoggedIn(): boolean {
-    return this.storage.getToken() !== null;
+    return !!this.storage.getToken().length;
+  }
+
+  public getUserData() {
+    return this.storage.getData();
+  }
+
+  public logout(): void {
+    this.storage.removeData();
   }
 }

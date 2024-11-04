@@ -4,12 +4,14 @@ import { AuthService } from '@services';
 
 export const loginGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
-  return true;
+  // console.log("authService.isLoggedIn()1: ", authService.isLoggedIn());
+  return authService.isLoggedIn();
 };
 
 export const nonLoginGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
-  return true;
+  // console.log("authService.isLoggedIn()2: ", authService.isLoggedIn());
+  return !authService.isLoggedIn();
 }
 
 // export const deActivateGuard: CanDeactivateFn<unknown> = (route, state) => {

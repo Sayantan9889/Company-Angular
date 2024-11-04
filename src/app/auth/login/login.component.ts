@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertService, ApiService, StorageService } from '@services';
 
 @Component({
@@ -13,6 +14,7 @@ export class LoginComponent {
   private storage = inject(StorageService);
   private alert = inject(AlertService);
   private api = inject(ApiService);
+  private router = inject(Router);
 
   protected form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -32,6 +34,7 @@ export class LoginComponent {
             console.log("res: ", res);
             this.storage.setData(res.data);
             this.alert.toastify('Logged in successfully!', 'success');
+            this.router.navigate(['/']);
           } else {
             console.error(res.message);
             this.alert.toastify(res.message, 'warning');
