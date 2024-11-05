@@ -16,6 +16,7 @@ export class HomeComponent {
   private readonly dialog = inject(MatDialog);
 
   protected banners:Array<any> = [];
+  protected details:any;
 
   constructor() {
     this.getBanner();
@@ -52,5 +53,23 @@ export class HomeComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('modal closed');
     });
+  }
+
+  private getDetails() {
+    this.api.get('home/banner/fetch-all').subscribe({
+      next: (res: any) => {
+        if (res.status == 200) {
+          console.log("res.data: ", res.data);
+          // this.details = res.data;
+        } else {
+          console.error(res.message);
+          this.alert.toastify(res.message, 'warning');
+        }
+      },
+      error: (err: any) => {
+        console.error('error: ', err);
+        this.alert.toastify(err.message, 'error');
+      }
+    })
   }
 }
