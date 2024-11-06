@@ -2,13 +2,18 @@ import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertService, ApiService } from '@services';
 import { ViewModalComponent } from 'src/app/shared/view-modal/view-modal.component';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [EditorModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  providers: [
+    // If you're self hosting and lazy loading TinyMCE from node_modules:
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  ]
 })
 export class HomeComponent {
   private readonly api = inject(ApiService);
@@ -16,10 +21,13 @@ export class HomeComponent {
   private readonly dialog = inject(MatDialog);
 
   protected banners:Array<any> = [];
-  protected details:any;
+  protected services:Array<any> = [];
+  protected aboutUs:any = {};
 
   constructor() {
     this.getBanner();
+    this.getServices();
+    this.getAboutUs();
   }
 
   private getBanner() {
@@ -29,7 +37,7 @@ export class HomeComponent {
           this.banners = res.data;
           // console.log("this.banners: ", this.banners);
         } else {
-          console.error(res.message);
+          console.error(res);
           this.alert.toastify(res.message, 'warning');
         }
       },
@@ -55,14 +63,32 @@ export class HomeComponent {
     });
   }
 
-  private getDetails() {
-    this.api.get('home/banner/fetch-all').subscribe({
+  private getServices() {
+    this.api.get('home/service/fetch-all').subscribe({
       next: (res: any) => {
         if (res.status == 200) {
-          console.log("res.data: ", res.data);
-          // this.details = res.data;
+          this.services = res.data;
+          // console.log("this.services: ", this.services);
         } else {
-          console.error(res.message);
+          console.error(res);
+          this.alert.toastify(res.message, 'warning');
+        }
+      },
+      error: (err: any) => {
+        console.error('error: ', err);
+        this.alert.toastify(err.message, 'error');
+      }
+    })
+  }
+
+  private getAboutUs() {
+    this.api.get('about-us/about/fetch').subscribe({
+      next: (res: any) => {
+        if (res.status == 200) {
+          this.aboutUs = res.data;
+          // console.log("this.aboutUs: ", this.aboutUs);
+        } else {
+          console.error(res);
           this.alert.toastify(res.message, 'warning');
         }
       },

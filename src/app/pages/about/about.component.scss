@@ -1,0 +1,12 @@
+.about-us-content {
+    ::ng-deep {
+        ul {
+            li::before {
+                // content: "• ";
+                content: "✔ ";
+                color: #157007;
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -694,72 +694,72 @@ section {
   box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
 }
 
-.services .iconbox-blue i {
-  color: #47aeff;
+.services .iconbox-blue .icon img {
+  z-index: 9;
 }
 
-.services .iconbox-blue:hover .icon i {
-  color: #fff;
+.services .iconbox-blue:hover .icon img {
+  mix-blend-mode: color-burn;
 }
 
 .services .iconbox-blue:hover .icon path {
   fill: #47aeff;
 }
 
-.services .iconbox-orange i {
-  color: #ffa76e;
+.services .iconbox-orange .icon img {
+  z-index: 9;
 }
 
-.services .iconbox-orange:hover .icon i {
-  color: #fff;
+.services .iconbox-orange:hover .icon img {
+  mix-blend-mode: color-burn;
 }
 
 .services .iconbox-orange:hover .icon path {
   fill: #ffa76e;
 }
 
-.services .iconbox-pink i {
-  color: #e80368;
+.services .iconbox-pink .icon img {
+  z-index: 9;
 }
 
-.services .iconbox-pink:hover .icon i {
-  color: #fff;
+.services .iconbox-pink:hover .icon img {
+  mix-blend-mode: color-burn;
 }
 
 .services .iconbox-pink:hover .icon path {
-  fill: #e80368;
+  fill: #fc5ba2;
 }
 
-.services .iconbox-yellow i {
-  color: #ffbb2c;
+.services .iconbox-yellow .icon img {
+  z-index: 9;
 }
 
-.services .iconbox-yellow:hover .icon i {
-  color: #fff;
+.services .iconbox-yellow:hover .icon img {
+  mix-blend-mode: color-burn;
 }
 
 .services .iconbox-yellow:hover .icon path {
   fill: #ffbb2c;
 }
 
-.services .iconbox-red i {
-  color: #ff5828;
+.services .iconbox-red .icon img {
+  z-index: 9;
 }
 
-.services .iconbox-red:hover .icon i {
-  color: #fff;
+.services .iconbox-red:hover .icon img {
+  mix-blend-mode: color-burn;
 }
 
 .services .iconbox-red:hover .icon path {
   fill: #ff5828;
 }
 
-.services .iconbox-teal i {
-  color: #11dbcf;
+.services .iconbox-teal .icon img {
+  z-index: 9;
 }
 
-.services .iconbox-teal:hover .icon i {
-  color: #fff;
+.services .iconbox-teal:hover .icon img {
+  mix-blend-mode: color-burn;
 }
 
 .services .iconbox-teal:hover .icon path {
