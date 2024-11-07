@@ -106,7 +106,7 @@ export class HomeComponent {
       next: (res: any) => {
         if (res.status == 200) {
           this.testimonials = res.data;
-          console.log("this.testimonials: ", this.testimonials);
+          // console.log("this.testimonials: ", this.testimonials);
         } else {
           console.error(res);
           this.alert.toastify(res.message, 'warning');
