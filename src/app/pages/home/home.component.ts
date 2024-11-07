@@ -23,11 +23,13 @@ export class HomeComponent {
   protected banners:Array<any> = [];
   protected services:Array<any> = [];
   protected aboutUs:any = {};
+  protected testimonials:any[] = [];
 
   constructor() {
     this.getBanner();
     this.getServices();
     this.getAboutUs();
+    this.getTestimonials();
   }
 
   private getBanner() {
@@ -87,6 +89,24 @@ export class HomeComponent {
         if (res.status == 200) {
           this.aboutUs = res.data;
           // console.log("this.aboutUs: ", this.aboutUs);
+        } else {
+          console.error(res);
+          this.alert.toastify(res.message, 'warning');
+        }
+      },
+      error: (err: any) => {
+        console.error('error: ', err);
+        this.alert.toastify(err.message, 'error');
+      }
+    })
+  }
+
+  private getTestimonials() {
+    this.api.get('home/testimony/fetch-all').subscribe({
+      next: (res: any) => {
+        if (res.status == 200) {
+          this.testimonials = res.data;
+          console.log("this.testimonials: ", this.testimonials);
         } else {
           console.error(res);
           this.alert.toastify(res.message, 'warning');
