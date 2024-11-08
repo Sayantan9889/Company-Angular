@@ -1,12 +1,45 @@
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
-<p>registration works!</p>
+<div class="auth-container d-flex justify-content-center align-items-center">
+    <div class="registration-container">
+        <div class="registration-image">
+          <img src="/assets/img/User-Registration.png" alt="Background Image">
+        </div>
+        <div class="registration-form">
+          <h2>Create an Account</h2>
+          <form action="#" id="registrationForm">
+            
+            <label for="image">Profile Picture</label>
+            <input type="file" id="image" accept="image/*">
+            
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" placeholder="Enter your first name" required>
+            
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" placeholder="Enter your last name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            
+            <label for="password">Password</label>
+            <div class="password-container">
+              <input type="password" id="password" placeholder="Enter your password" required>
+              <span class="toggle-password">👁️</span>
+            </div>
+            
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-container">
+              <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+              <span class="toggle-password">👁️</span>
+            </div>
+            
+            <label for="hint_question">Hint Question</label>
+            <input type="text" id="hint_question" placeholder="Enter a hint question" required>
+            
+            <label for="hint_answer">Hint Answer</label>
+            <input type="text" id="hint_answer" placeholder="Enter the answer to your hint question" required>
+            
+            <button type="submit">Register</button>
+          </form>
+          <p>Already have an account? <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login here</a></p>
+        </div>
+      </div>
+</div>
