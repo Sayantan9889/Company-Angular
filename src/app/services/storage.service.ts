@@ -9,6 +9,8 @@ export class StorageService {
   private cookie = inject(CookieService);
   private platformId = inject(PLATFORM_ID)
 
+  private readonly mabboxAccessToken:string = 'pk.eyJ1Ijoic3ViaGFtMjM5NSIsImEiOiJjbDhkNnA1eXAwc3o5M29tcmd2YjZ3dmQ2In0.x3UvASry5geXaY_WTakVew';
+
   constructor() { }
 
   public setData(data: any) {
@@ -44,5 +46,9 @@ export class StorageService {
     }
     // sessionStorage.removeItem('token');
     this.cookie.delete('token');
+  }
+
+  getMapKey():string {
+    return this.mabboxAccessToken;
   }
 }
